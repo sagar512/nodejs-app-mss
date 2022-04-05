@@ -84,8 +84,8 @@ stages{
         steps {
             echo "Building phase started"
             script{
-                docker.withRegistry('url of docker repo', 'Credentials ID') {
-                    def customImage = docker.build("url of docker repo/env name/apiname:${currentBuild.id}")
+                docker.withRegistry('https://hub.docker.com/repository/docker/sagar512/ucd/general', 'docker-creds') {
+                    def customImage = docker.build("https://hub.docker.com/repository/docker/sagar512/ucd/general:${currentBuild.id}")
                     customImage.push("${currentBuild.id}")  
                 }
             }
