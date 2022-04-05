@@ -38,8 +38,8 @@ stages{
      // Building    
      stage("Build Project"){
      steps { 
-        sh 'Mvn install' 
-        sh 'Mvn package'
+        sh 'mvn install' 
+        sh 'mvn clean package'
      }
      }
 
