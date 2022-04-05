@@ -31,7 +31,7 @@ stages{
     // Installing Dependancies   
      stage("Install Project Dependencies"){
      steps {
-         sh 'mvn install'
+         sh 'mvn -version'
           }
       }
 
