@@ -2,7 +2,9 @@ pipeline {
 
 //agent { node { label 'server IP' } }
 
-//agent none
+agent {
+    label "13.67.134.235"
+}
 
 options {
     skipDefaultCheckout()
