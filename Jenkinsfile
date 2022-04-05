@@ -38,7 +38,7 @@ stages{
      // Building    
      stage("Build Project"){
      steps { 
-        sh 'npm -i ' 
+        sh 'npm -i mocha -g' 
         sh 'npm run build'
      }
      }
