@@ -3,7 +3,7 @@ pipeline {
 //agent { node { label 'server IP' } }
 
 agent {
-    label "13.67.134.235"
+    label "Built-In Node"
 }
 
 options {
