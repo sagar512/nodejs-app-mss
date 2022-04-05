@@ -36,12 +36,12 @@ stages{
       }
 
      // Building    
-     stage("Build Project"){
-     steps { 
+   //  stage("Build Project"){
+    // steps { 
        // sh 'npm i' 
       //  sh 'npm run build'
-     }
-     }
+    // }
+    // }
 
 
      // Code quality checks
