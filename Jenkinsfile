@@ -31,15 +31,15 @@ stages{
     // Installing Dependancies   
      stage("Install Project Dependencies"){
      steps {
-         sh 'mvn -version'
+         sh 'npm install'
           }
       }
 
      // Building    
      stage("Build Project"){
      steps { 
-        sh 'mvn install' 
-        sh 'mvn clean package'
+        sh 'npm -i ' 
+        sh 'npm run build'
      }
      }
 
@@ -48,7 +48,7 @@ stages{
      stage('Run quality checks') {
          when {
              allOf {
-                 branch 'branchname'
+                 branch 'master'
              }
          }
          environment {
@@ -65,7 +65,7 @@ stages{
      stage ("SonarQube Quality Gate") {
          when {
              allOf {
-                 branch 'branchname'
+                 branch 'master'
              }
          }
          steps {
