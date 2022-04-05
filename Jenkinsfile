@@ -39,7 +39,7 @@ stages{
      stage("Build Project"){
      steps { 
        // sh 'npm i' 
-        sh 'npm run build'
+      //  sh 'npm run build'
      }
      }
 
