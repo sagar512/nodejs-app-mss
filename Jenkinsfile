@@ -76,6 +76,13 @@ stages{
 //            def remote =
 //        }
 //    }
+    
+    stage('RunNodeJsApp'){
+    //sh "./scripts/run.sh"
+      nodejs(nodeJSInstallationName: 'nodejs15.2.1') {
+        sh 'npm start &'
+    }
+}    
 
     }
     
