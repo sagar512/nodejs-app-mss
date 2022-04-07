@@ -31,7 +31,8 @@ stages{
         steps{
 //            sh 'apt-get update -y'
 //            sh 'npm install pm2 -g'
-            sh 'npm install npm@latest -g'
+//            sh 'npm install npm@latest -g'
+            sh 'npm install'
             sh 'npm uninstall sequelize'
             sh 'npm install sequelize@v6.6.2'
         }
