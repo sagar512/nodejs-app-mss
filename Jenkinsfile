@@ -48,8 +48,8 @@ stages{
         steps{
             echo 'Building Started'
             script{
-                docker.withRegistry('docker-creds'){
-                    def customImage = docker.build('https://hub.docker.com/repository/docker/sagar512/demoproject7:${currentBuild.id}')
+                docker.withRegistry('docker-creds') {
+                    def customImage = docker .build('https://hub.docker.com/repository/docker/sagar512/demoproject7:${currentBuild.id}')
                     customImage.push('${currentBuild.id}')
                 }
 
