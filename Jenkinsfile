@@ -50,7 +50,7 @@ stages{
     // container creation and push to hub //
 
     stage(' Docker Build and Push '){
-        steps{
+        nodejs(nodeJSInstallationName: 'nodejs15.2.1')
             echo 'Building Started'
             script{
                 dockerImage = docker.build imagename
@@ -70,11 +70,13 @@ stages{
     // Deploy //
 
    stage('Deployment Started'){
+       steps{
 
         echo 'Building Started'
         script{
             nodejs(nodeJSInstallationName: 'nodejs15.2.1')
             sh 'npm start &'
+        }
         }
     }
     
