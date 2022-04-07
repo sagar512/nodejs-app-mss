@@ -44,6 +44,7 @@ stages{
 
         steps {
             sh 'npm run'
+            sh 'npm start'
         }
     }
 
