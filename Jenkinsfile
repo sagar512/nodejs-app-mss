@@ -8,6 +8,11 @@ options {
     disableConcurrentBuilds()
     disableResume()
     }
+    
+ environment {
+    imagename = "sagar512/demoproject7"
+    dockerImage = ''
+  }   
 parameters {
 
     string(name: 'imagename', defaultValue: '1.0', description: 'tagname')
@@ -50,7 +55,7 @@ stages{
             script{
                 dockerImage = docker.build imagename
                 docker.withRegistry('', 'docker-creds') {
-                dockerImage.push("https://hub.docker.com/sagar512/demoproject7:tagname")
+                dockerImage.push("$BUILD_NUMBER")
                 dockerImage.push('latest')    
 
                 }
