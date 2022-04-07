@@ -29,12 +29,7 @@ stages{
     stage("Install Project Dependencies"){
 
         steps{
-//            sh 'apt-get update -y'
-//            sh 'npm install pm2 -g'
-//            sh 'npm install npm@latest -g'
             sh 'npm install'
-            sh 'npm uninstall sequelize'
-            sh 'npm install sequelize@v6.6.2'
         }
     } 
     
@@ -44,7 +39,6 @@ stages{
 
         steps {
             sh 'npm run'
-            sh 'npm start'
         }
     }
 
@@ -55,8 +49,8 @@ stages{
             echo 'Building Started'
             script{
                 docker.withRegistry('docker.io', 'docker-creds'){
-                    def customerimage = docker .build('https://hub.docker.com/repository/docker/sagar512/demoproject7:${currentBuild.id}')
-                    customerImage.push('${currentBuild.id}')
+                    def customImage = docker.build('https://hub.docker.com/repository/docker/sagar512/demoproject7:${currentBuild.id}')
+                    customImage.push('${currentBuild.id}')
                 }
 
 
