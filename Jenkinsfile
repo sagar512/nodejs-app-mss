@@ -50,10 +50,9 @@ stages{
             script{
                 dockerImage = docker.build imagename
                 docker.withRegistry('', 'docker-creds') {
- //               dockerImage.push("https://hub.docker.com/repository/docker/sagar512/demoproject7:$BUILD_NUMBER")
- //               dockerImage.push('latest')    
-                  dockerImage.push('https://hub.docker.com/repository/docker/sagar512/demoproject7:${currentBuild.id}')
-                  customImage.push('${currentBuild.id}')
+                dockerImage.push("https://hub.docker.com/repository/docker/sagar512/demoproject7:$BUILD_NUMBER")
+                dockerImage.push('latest')    
+
                 }
 
 
