@@ -80,14 +80,16 @@ stages{
     }
 
     // Deploy //
-
     stage('Deployment Started'){
+        steps{
 
         echo 'Building Started'
         script{
             
             sh 'npm start &&'
        }
+    }
+
     }
 
 
