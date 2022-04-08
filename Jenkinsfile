@@ -1,7 +1,8 @@
 pipeline {
 
-agent { node { label 'panther' } }
-
+//agent { node { label 'panther' } }
+agent any
+    
 options {
 
     skipDefaultCheckout()
