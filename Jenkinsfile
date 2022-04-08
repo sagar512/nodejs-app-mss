@@ -52,6 +52,7 @@ stages{
     stage('SonarQube Quality Gate') {
         
          steps {
+             def scannerHome = tool 'SonarScanner 9.4';
              withSonarQubeEnv('sonarqube') {
                  sh 'npm run sonar'
              }
