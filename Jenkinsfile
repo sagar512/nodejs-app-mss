@@ -13,7 +13,7 @@ options {
  environment {
     imagename = "sagar512/demoproject7"
     dockerImage = ''
-    scannerHome = tool 'SonarQubeScanner 
+    //scannerHome = tool 'SonarQubeScanner 
   }   
 parameters {
 
