@@ -48,22 +48,20 @@ stages{
         }
     }
     
-      stage('Run quality checks') {
-         when {
-             allOf {
-                 branch 'master'
-             }
-         }
-         environment {
-             scannerHome = tool 'SonarQubeScanner'
-         }
-         steps {
-             withSonarQubeEnv('sonarqube') {
-                 sh '${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=reponame -Dsonar.sources=src'
-             }
-         }
-     }
-    
+    stage('Run quality check') {
+        steps {
+            dir('test') {
+                script {
+                    try {
+                        build job: 'sagar512/nodejs-app-mss', parameters: [ string(name: 'branch', value: "master")]
+                        }
+                   
+                
+                }
+            }
+    }
+    }    
+        
      // Code quality gate checks
      stage ("SonarQube Quality Gate") {
          when {
