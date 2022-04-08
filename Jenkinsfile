@@ -1,7 +1,7 @@
 pipeline {
 
-//agent { node { label 'panther' } }
-agent any
+agent { node { label 'spider' } }
+
     
 options {
 
