@@ -45,11 +45,16 @@ stages{
 
         steps {
             sh 'npm run'
-            sh " npm run sonar"
         }
     }
     
+//sonar Scan //
+     stage(" Sonar Scaning"){
 
+        steps {
+             sh " npm run sonar"
+        }
+    }
 
     // container creation and push to hub //
 
