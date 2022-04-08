@@ -53,9 +53,9 @@ stages{
         
          steps {
              
-             withSonarQubeEnv('sonarqube-9.4') {
+             
                  sh 'npm run sonar'
-             }
+             
          }
      }
     
