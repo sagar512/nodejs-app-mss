@@ -48,13 +48,27 @@ stages{
         }
     }
     
-//sonar Scan //
-     stage(" Sonar Scaning"){
+    stage('Run quality checks') {
+        
+         steps {
+             withSonarQubeEnv('sonarqube') {
+                 sh 'npm run sonar'
+             }
+         }
+     }
+    
+     // Code quality gate checks
+     stage ("SonarQube Quality Gate") {
 
-        steps {
-             sh " npm run sonar"
-        }
-    }
+         steps {
+             script {
+                 def qualitygate = waitForQualityGate() 
+                 if (qualitygate.status != "OK") {
+                     error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+                 }
+             }
+         }
+     }
 
     // container creation and push to hub //
 
