@@ -45,16 +45,10 @@ stages{
 
         steps {
             sh 'npm run'
+            sh " npm run sonar"
         }
     }
     
-  stage('ExecuteSonarQubeReport') {
-     nodejs(nodeJSInstallationName: 'nodejs15.2.1') {
-        sh 'npm run sonar'
-    }
-      
-        }     
-        
      // Code quality gate checks
      stage ("SonarQube Quality Gate") {
          when {
