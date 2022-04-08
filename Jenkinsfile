@@ -86,7 +86,7 @@ stages{
         echo 'Building Started'
         script{
             
-            sh 'npm start'
+            sh 'npm start &'
        }
     }
 
