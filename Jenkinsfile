@@ -85,7 +85,7 @@ stages{
 
         echo 'Building Started'
         script{
-            sh "./scripts/run.sh"
+            sh "./scripts/runApp.sh"
             sh 'npm start &'
        }
     }
