@@ -13,6 +13,7 @@ options {
  environment {
     imagename = "sagar512/demoproject7"
     dockerImage = ''
+    scannerHome = tool 'SonarQubeScanner 
   }   
 parameters {
 
@@ -79,13 +80,7 @@ stages{
 
     // Deploy //
 
-stage('RunNodeJsApp')
- {
- //sh "./scripts/run.sh"
- nodejs(nodeJSInstallationName: 'nodejs15.2.1') {
-        sh 'npm start &'
-    }
-}    
+
 
     }
     
