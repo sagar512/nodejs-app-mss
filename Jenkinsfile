@@ -46,6 +46,39 @@ stages{
             sh 'npm run'
         }
     }
+    
+      stage('Run quality checks') {
+         when {
+             allOf {
+                 branch 'master'
+             }
+         }
+         environment {
+             scannerHome = tool 'SonarQubeScanner'
+         }
+         steps {
+             withSonarQubeEnv('sonarqube') {
+                 sh '${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=reponame -Dsonar.sources=src'
+             }
+         }
+     }
+    
+     // Code quality gate checks
+     stage ("SonarQube Quality Gate") {
+         when {
+             allOf {
+                 branch 'master'
+             }
+         }
+         steps {
+             script {
+                 def qualitygate = waitForQualityGate() 
+                 if (qualitygate.status != "OK") {
+                     error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+                 }
+             }
+         }
+     }
 
     // container creation and push to hub //
 
