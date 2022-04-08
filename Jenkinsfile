@@ -48,23 +48,7 @@ stages{
         }
     }
     
-  stage('Run quality check') {
-           steps {
-                dir('test') {
-                    script {
-                         try {
-                             build job: 'sagar512/nodejs-app-mss', parameters: [ string(name: 'branch', value: "master")]
-                         }
-                        
-                    }
-                                    
-                
-                
-                }
-                
-            
-           }
-   }      
+      
         
      // Code quality gate checks
      stage ("SonarQube Quality Gate") {
