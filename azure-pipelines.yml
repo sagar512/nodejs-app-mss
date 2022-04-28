@@ -22,6 +22,6 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHub'
-    repository: 'azure-demo'
+    repository: 'sagar512/azure-demo:tagname'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
