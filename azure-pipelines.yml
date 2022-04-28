@@ -19,7 +19,7 @@ steps:
     npm install
     npm run
   displayName: 'npm install and build'
-- task: Docker@2
+- task: Docker@1
   inputs:
     containerRegistry: 'DockerHub'
     repository: 'sagar512/azure-demo'
