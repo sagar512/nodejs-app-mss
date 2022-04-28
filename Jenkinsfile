@@ -1,6 +1,6 @@
 pipeline {
 
-agent { node { label 'spider' } }
+#agent { node { label 'spider' } }
 
     
 options {
